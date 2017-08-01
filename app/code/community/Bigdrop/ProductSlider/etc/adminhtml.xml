@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Custom Product Sliders
+ *
+ * @category Bigdrop
+ * @package  Bigdrop_ProductSlider
+ * @author   Pavel Panchyshnyy <pavel.p@bigdropinc.com>
+ * @license  http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <product_sliders translate="title" module="bd_product_slider">
+                                        <title>Bigdrop - Product Sliders Section</title>
+                                    </product_sliders>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

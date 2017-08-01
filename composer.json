@@ -1,0 +1,17 @@
+{
+  "name": "bigdropinc/product-slider",
+  "description": "Helps admin to easily add different fully responsive products sliders to the any section of the page",
+  "type": "magento-module",
+  "homepage": "https://github.com/paul-panchyshnyy/magento-bigdrop-product-slider",
+  "license": "OSL-3.0",
+  "authors": [
+    {
+      "name": "Paul Panchyshnyy",
+      "email": "pavel.p@bigdropinc.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.0",
+    "magento-hackathon/magento-composer-installer": "*"
+  }
+}

@@ -1,0 +1,402 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Custom Product Sliders
+ *
+ * @category Bigdrop
+ * @package  Bigdrop_ProductSlider
+ * @author   Pavel Panchyshnyy <pavel.p@bigdropinc.com>
+ * @license  http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <tabs>
+        <bigdrop translate="label" module="bd_product_slider">
+            <label><![CDATA[<div style="background: none; padding: 0; margin: 0; text-decoration: none; border: none; color: #306375; text-transform: uppercase; font-weight: bold;"><span style="display: inline-block; background: none; padding: 0; margin: 0; text-decoration: none; border: none;">Bigdr</span><span style="display: inline-block; color: #f7ba00; transform: translateY(3px); background: none; padding: 0; margin: 0; text-decoration: none; border: none;">o</span><span style="display: inline-block; background: none; padding: 0; margin: 0; text-decoration: none; border: none;">p</span>
+</div>]]></label>
+            <sort_order>10</sort_order>
+        </bigdrop>
+    </tabs>
+    <sections>
+        <product_sliders translate="label" module="bd_product_slider">
+            <label>Product Sliders</label>
+            <tab>bigdrop</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>15</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <settings translate="label">
+                    <label>General Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <add_slick_js translate="label comment">
+                            <label>Activate slick js</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <frontend_class>validate-number</frontend_class>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Required for the module functionality. Disable it if you will have any conflicts with another modules</comment>
+                        </add_slick_js>
+                        <limit translate="label comment">
+                            <label>Limit</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <frontend_class>validate-number</frontend_class>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Number of the items to show. Default: 36</comment>
+                        </limit>
+                        <sort_by translate="label comment">
+                            <label>Sort By</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>20</sort_order>
+                            <source_model>bd_product_slider/adminhtml_system_config_source_sortby</source_model>
+                            <frontend_class>required-entry</frontend_class>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Product collection sort order configuration</comment>
+                        </sort_by>
+                        <sort_order translate="label comment">
+                            <label>Sort Order</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>30</sort_order>
+                            <source_model>bd_product_slider/adminhtml_system_config_source_sortorder</source_model>
+                            <frontend_class>required-entry</frontend_class>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Product collection sort order direction</comment>
+                        </sort_order>
+                    </fields>
+                </settings>
+                <sliders translate="label">
+                    <label>Sliders Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <frontend_class>complex</frontend_class>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <featured translate="label" type="group">
+                            <label>Featured Products<![CDATA[<span style="color: #2f2f2f;border: 1px solid #6f8992;border-radius: 15px;padding: 2px 10px;background-color: #cddddd;margin-left: 10px;">Global</span>]]></label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_class>complex</frontend_class>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <fields>
+                                <is_enabled translate="label">
+                                    <label>Is Enabled</label>
+                                    <frontend_type>select</frontend_type>
+                                    <frontend_class>required-entry</frontend_class>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>10</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </is_enabled>
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>15</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends><is_enabled>1</is_enabled></depends>
+                                </title>
+                            </fields>
+                        </featured>
+                        <newest translate="label" type="group">
+                            <label>Newest Products<![CDATA[<span style="color: #2f2f2f;border: 1px solid #6f8992;border-radius: 15px;padding: 2px 10px;background-color: #cddddd;margin-left: 10px;">Global</span>]]></label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_class>complex</frontend_class>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <fields>
+                                <is_enabled translate="label">
+                                    <label>Is Enabled</label>
+                                    <frontend_type>select</frontend_type>
+                                    <frontend_class>required-entry</frontend_class>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>10</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </is_enabled>
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>15</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends><is_enabled>1</is_enabled></depends>
+                                </title>
+                            </fields>
+                        </newest>
+                        <recently_viewed translate="label" type="group">
+                            <label>Recently Viewed Products<![CDATA[<span style="color: #2f2f2f;border: 1px solid #6f8992;border-radius: 15px;padding: 2px 10px;background-color: #cddddd;margin-left: 10px;">Global</span>]]></label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_class>complex</frontend_class>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <fields>
+                                <is_enabled translate="label">
+                                    <label>Is Enabled</label>
+                                    <frontend_type>select</frontend_type>
+                                    <frontend_class>required-entry</frontend_class>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>10</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </is_enabled>
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>15</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends><is_enabled>1</is_enabled></depends>
+                                </title>
+                            </fields>
+                        </recently_viewed>
+                        <sale translate="label" type="group">
+                            <label>Sale Products<![CDATA[<span style="color: #2f2f2f;border: 1px solid #6f8992;border-radius: 15px;padding: 2px 10px;background-color: #cddddd;margin-left: 10px;">Global</span>]]></label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_class>complex</frontend_class>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <fields>
+                                <is_enabled translate="label">
+                                    <label>Is Enabled</label>
+                                    <frontend_type>select</frontend_type>
+                                    <frontend_class>required-entry</frontend_class>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>10</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </is_enabled>
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>15</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends><is_enabled>1</is_enabled></depends>
+                                </title>
+                            </fields>
+                        </sale>
+                        <bestsellers translate="label" type="group">
+                            <label>Bestsellers<![CDATA[<span style="color: #2f2f2f;border: 1px solid #6f8992;border-radius: 15px;padding: 2px 10px;background-color: #cddddd;margin-left: 10px;">Global</span>]]></label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_class>complex</frontend_class>
+                            <sort_order>45</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <fields>
+                                <is_enabled translate="label comment">
+                                    <label>Is Enabled</label>
+                                    <frontend_type>select</frontend_type>
+                                    <frontend_class>required-entry</frontend_class>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>10</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <comment>Monthly aggregated</comment>
+                                </is_enabled>
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>15</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends><is_enabled>1</is_enabled></depends>
+                                </title>
+                            </fields>
+                        </bestsellers>
+                        <associated translate="label" type="group">
+                            <label>Associated Products<![CDATA[<span style="color: #2f2f2f;border: 1px solid #6f8992;border-radius: 15px;padding: 2px 10px;background-color: #cddddd;margin-left: 10px;">Product Page</span>]]></label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_class>complex</frontend_class>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <fields>
+                                <is_enabled translate="label comment">
+                                    <label>Is Enabled</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>10</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <comment>Products associated with current by a few attributes listed below</comment>
+                                </is_enabled>
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <frontend_class>required-entry</frontend_class>
+                                    <sort_order>15</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends><is_enabled>1</is_enabled></depends>
+                                </title>
+                                <associated_attributes translate="label tooltip">
+                                    <label>Associated Attributes</label>
+                                    <frontend_type>multiselect</frontend_type>
+                                    <frontend_class>required-entry</frontend_class>
+                                    <sort_order>20</sort_order>
+                                    <source_model>bd_product_slider/adminhtml_system_config_source_attributes</source_model>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <tooltip>Attributes to filter a product collection (they should be visible on front)</tooltip>
+                                    <depends><is_enabled>1</is_enabled></depends>
+                                </associated_attributes>
+                            </fields>
+                        </associated>
+                        <similar translate="label" type="group">
+                            <label>Similar Products<![CDATA[<span style="color: #2f2f2f;border: 1px solid #6f8992;border-radius: 15px;padding: 2px 10px;background-color: #cddddd;margin-left: 10px;">Product Page</span>]]></label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_class>complex</frontend_class>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <fields>
+                                <is_enabled translate="label comment">
+                                    <label>Is Enabled</label>
+                                    <frontend_type>select</frontend_type>
+                                    <frontend_class>required-entry</frontend_class>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>10</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <comment>Products similar with current (products in the same category)</comment>
+                                </is_enabled>
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>15</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends><is_enabled>1</is_enabled></depends>
+                                </title>
+                            </fields>
+                        </similar>
+                        <wishlist_similar translate="label" type="group">
+                            <label>Similar Products<![CDATA[<span style="color: #2f2f2f;border: 1px solid #6f8992;border-radius: 15px;padding: 2px 10px;background-color: #cddddd;margin-left: 10px;">Wishlist</span>]]></label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_class>complex</frontend_class>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <fields>
+                                <is_enabled translate="label comment">
+                                    <label>Is Enabled</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>10</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <comment>Products similar with current (products in the same category). Will be shown only if Wishlist is enabled</comment>
+                                </is_enabled>
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <frontend_class>required-entry</frontend_class>
+                                    <sort_order>15</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends><is_enabled>1</is_enabled></depends>
+                                </title>
+                            </fields>
+                        </wishlist_similar>
+                        <cart_similar translate="label" type="group">
+                            <label>Similar Products<![CDATA[<span style="color: #2f2f2f;border: 1px solid #6f8992;border-radius: 15px;padding: 2px 10px;background-color: #cddddd;margin-left: 10px;">Shopping Cart</span>]]></label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_class>complex</frontend_class>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <fields>
+                                <is_enabled translate="label comment">
+                                    <label>Is Enabled</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>10</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <comment>Products similar with current (products in the same category)</comment>
+                                </is_enabled>
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <frontend_class>required-entry</frontend_class>
+                                    <sort_order>15</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends><is_enabled>1</is_enabled></depends>
+                                </title>
+                            </fields>
+                        </cart_similar>
+                    </fields>
+                </sliders>
+                <implementation translate="label">
+                    <label>Implementation</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <implementation>
+                            <label />
+                            <frontend_model>bd_product_slider/adminhtml_system_config_implementation</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </implementation>
+                    </fields>
+                </implementation>
+            </groups>
+        </product_sliders>
+    </sections>
+</config>

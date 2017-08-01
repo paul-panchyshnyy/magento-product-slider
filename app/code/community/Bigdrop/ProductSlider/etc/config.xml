@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Custom Product Sliders
+ *
+ * @category Bigdrop
+ * @package  Bigdrop_ProductSlider
+ * @author   Pavel Panchyshnyy <pavel.p@bigdropinc.com>
+ * @license  http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Bigdrop_ProductSlider>
+            <version>1.0.2</version>
+        </Bigdrop_ProductSlider>
+    </modules>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <bd_product_slider before="Mage_Adminhtml">Bigdrop_ProductSlider_Adminhtml</bd_product_slider>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <global>
+        <blocks>
+            <bd_product_slider>
+                <class>Bigdrop_ProductSlider_Block</class>
+            </bd_product_slider>
+        </blocks>
+        <helpers>
+            <bd_product_slider>
+                <class>Bigdrop_ProductSlider_Helper</class>
+            </bd_product_slider>
+        </helpers>
+        <models>
+            <bd_product_slider>
+                <class>Bigdrop_ProductSlider_Model</class>
+            </bd_product_slider>
+        </models>
+        <resources>
+            <bd_product_slider_setup>
+                <setup>
+                    <module>Bigdrop_ProductSlider</module>
+                </setup>
+            </bd_product_slider_setup>
+        </resources>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <bd_product_slider>
+                    <file>bigdrop/product_slider.xml</file>
+                </bd_product_slider>
+            </updates>
+        </layout>
+        <events>
+            <controller_action_layout_render_before_catalog_product_view>
+                <observers>
+                    <add_product_sliders_on_product_view_page>
+                        <class>bd_product_slider/observer</class>
+                        <method>addProductSlidersOnProductViewPage</method>
+                    </add_product_sliders_on_product_view_page>
+                </observers>
+            </controller_action_layout_render_before_catalog_product_view>
+            <core_block_abstract_to_html_after>
+                <observers>
+                    <add_product_sliders_on_shopping_cart_page>
+                        <class>bd_product_slider/observer</class>
+                        <method>addProductSlidersOnShoppingCartPage</method>
+                    </add_product_sliders_on_shopping_cart_page>
+                </observers>
+            </core_block_abstract_to_html_after>
+            <controller_action_layout_render_before_wishlist_index_index>
+                <observers>
+                    <add_product_sliders_on_customers_wishlist_page>
+                        <class>bd_product_slider/observer</class>
+                        <method>addProductSlidersOnCustomerWishlistPage</method>
+                    </add_product_sliders_on_customers_wishlist_page>
+                </observers>
+            </controller_action_layout_render_before_wishlist_index_index>
+        </events>
+    </frontend>
+    <default>
+        <product_sliders>
+            <settings>
+                <add_slick_js>1</add_slick_js>
+                <limit>36</limit>
+                <sort_by>name</sort_by>
+                <sort_order>desc</sort_order>
+            </settings>
+            <featured>
+                <is_enabled>1</is_enabled>
+                <title>Featured Items</title>
+            </featured>
+            <newest>
+                <is_enabled>1</is_enabled>
+                <title>New Listings</title>
+            </newest>
+            <newest>
+                <is_enabled>1</is_enabled>
+                <title>New Listings</title>
+            </newest>
+            <recently_viewed>
+                <is_enabled>1</is_enabled>
+                <title>Recently Viewed</title>
+            </recently_viewed>
+            <sale>
+                <is_enabled>1</is_enabled>
+                <title>Sale Items</title>
+            </sale>
+            <bestsellers>
+                <is_enabled>1</is_enabled>
+                <title>Bestsellers</title>
+            </bestsellers>
+            <associated>
+                <title>Items In This Style</title>
+            </associated>
+            <similar>
+                <title>Similar Items</title>
+            </similar>
+            <cart_similar>
+                <title>Similar Items</title>
+            </cart_similar>
+            <wishlist_similar>
+                <title>Similar Items</title>
+            </wishlist_similar>
+        </product_sliders>
+    </default>
+</config>

@@ -1,0 +1,76 @@
+<?php
+/**
+ * Custom Product Sliders
+ * Default template
+ *
+ * @category Bigdrop
+ * @package  Bigdrop_ProductSlider
+ * @author   Pavel Panchyshnyy <pavel.p@bigdropinc.com>
+ * @license  http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<?php /** @var $this Bigdrop_ProductSlider_Block_Slider_Abstract */ ?>
+<?php $products = $this->getSliderCollection() ?>
+<?php $helper   = $this->helper('catalog/output') ?>
+<?php if (count($products)): ?>
+    <div class="product-slider-block" style="visibility: hidden">
+	    <div class="slider-title">
+            <?php /* @noEscape */ echo $this->getSliderTitle(); ?>
+        </div>
+        <ol class="product-slider products-grid">
+            <?php foreach ($products as $product): ?>
+                <li class="item">
+                    <a href="<?php /* @noEscape */ echo $product->getProductUrl() ?>"
+                       title="<?php echo $this->escapeHtml($product->getName()) ?>" class="product-image">
+                        <img src="<?php /* @noEscape */ echo $this->helper('catalog/image')->init($product, 'thumbnail')->resize(200) ?>"
+                            width="200" height="200" alt="<?php echo $this->escapeHtml($product->getName()) ?>"/>
+                    </a>
+                    <div class="product-info">
+                        <div class="product-name">
+                            <a href="<?php /* @noEscape */ echo $product->getProductUrl() ?>">
+                                <?php echo $this->escapeHtml($product->getName()) ?>
+                            </a>
+                        </div>
+                        <?php echo $this->getPriceHtml($product, true, '-' . $this->getCode()) ?>
+                        <?php if ($product->getRatingSummary()): ?>
+                            <?php echo $this->getReviewsSummaryHtml($product, 'short') ?>
+                        <?php endif; ?>
+                        <div class="actions">
+                            <?php if (!$product->canConfigure() && $product->isSaleable()): ?>
+                                <button type="button" title="<?php echo $this->quoteEscape($this->__('Add to Cart')) ?>"
+                                        class="button btn-cart"
+                                        onclick="setLocation('<?php echo $this->getAddToCartUrl($product) ?>')">
+                                    <span><span><?php /* @noEscape */ echo $this->__('Add to Cart') ?></span></span></button>
+                            <?php elseif ($product->getStockItem() && $product->getStockItem()->getIsInStock()): ?>
+                                <a title="<?php echo $this->quoteEscape($this->__('View Details')) ?>" class="button"
+                                   href="<?php /* @noEscape */ echo $product->getProductUrl() ?>">
+                                    <?php /* @noEscape */echo $this->__('View Details') ?>
+                                </a>
+                            <?php else: ?>
+                                <p class="availability out-of-stock">
+                                    <span><?php /* @noEscape */ echo $this->__('Out of stock') ?></span>
+                                </p>
+                            <?php endif; ?>
+                            <ul class="add-to-links">
+                                <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                                    <li>
+                                        <a href="<?php echo $this->helper('wishlist')->getAddUrl($product) ?>" class="link-wishlist">
+                                            <?php /* @noEscape */ echo $this->__('Add to Wishlist') ?>
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
+                                <?php if ($compareUrl = $this->getAddToCompareUrl($product)): ?>
+                                    <li>
+                                        <a href="<?php echo $compareUrl ?>" class="link-compare">
+                                            <?php /* @noEscape */ echo $this->__('Add to Compare') ?>
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            <?php endforeach ?>
+        </ol>
+    </div>
+<?php endif; ?>

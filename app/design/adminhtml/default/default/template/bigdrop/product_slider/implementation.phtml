@@ -1,0 +1,121 @@
+<?php
+/**
+ * Custom Product Sliders
+ *
+ * @category Bigdrop
+ * @package  Bigdrop_ProductSlider
+ * @author   Pavel Panchyshnyy <pavel.p@bigdropinc.com>
+ * @license  http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<style>
+    .help-title {
+        color: #306375;
+        text-align: center;
+        border: 1px solid #6f8992;
+        padding: 3px;
+        background-color: #E7EFEF;
+    }
+    .slider-types {
+        width: 680px;
+        margin: 0 auto;
+    }
+    .slider-types-table {
+        width: inherit;
+    }
+    .slider-types-table td, .slider-types-table th {
+        padding: 5px;
+    }
+    .slider-types-table th {
+        background-color: #6f8992;
+        color: #fff;
+    }
+</style>
+<fieldset id="auction_template" class="config collapseable" style="width: 700px">
+    <div class="div-implementation-help">
+        <h3 class="help-title">
+            <?php /* @noEscape */ echo $this->__('Product Sliders can be placed on the any position of the page.') ?>
+        </h3>
+    </div>
+    <div class="slider-types">
+        <h4><?php /* @noEscape */ echo $this->__('Available slider types:') ?></h4>
+        <table border="1" style="border-collapse: collapse" class="slider-types-table">
+            <tr>
+                <th><?php /* @noEscape */ echo $this->__('Type') ?></th>
+                <th><?php /* @noEscape */ echo $this->__('Available on') ?></th>
+                <th><?php /* @noEscape */ echo $this->__('Short Description') ?></th>
+            </tr>
+            <tr>
+                <td><code>bd_product_slider/newest</code></td>
+                <td><?php /* @noEscape */ echo $this->__('All Pages') ?></td>
+                <td><?php /* @noEscape */ echo $this->__('Newest Products') ?></td>
+            </tr>
+            <tr>
+                <td><code>bd_product_slider/sale</code></td>
+                <td><?php /* @noEscape */ echo $this->__('All Pages') ?></td>
+                <td><?php /* @noEscape */ echo $this->__('Sale Products (products with special price)') ?></td>
+            </tr>
+            <tr>
+                <td><code>bd_product_slider/recently</code></td>
+                <td><?php /* @noEscape */ echo $this->__('All Pages') ?></td>
+                <td><?php /* @noEscape */ echo $this->__('Recently Viewed') ?></td>
+            </tr>
+            <tr>
+                <td><code>bd_product_slider/featured</code></td>
+                <td><?php /* @noEscape */ echo $this->__('All Pages') ?></td>
+                <td><?php /* @noEscape */ echo $this->__('Featured Products') ?></td>
+            </tr>
+            <tr>
+                <td><code>bd_product_slider/bestsellers</code></td>
+                <td><?php /* @noEscape */ echo $this->__('All Pages') ?></td>
+                <td><?php /* @noEscape */ echo $this->__('Bestsellers') ?></td>
+            </tr>
+        </table>
+    </div>
+    <br/>
+    <p> - <?php /* @noEscape */ echo $this->__('For example Featured products:') ?></p>
+    <div class="div-implementation-help">
+        <ul class="messages">
+            <li class="notice-msg">
+                <ul>
+                    <li><?php /* @noEscape */ echo $this->__('Option 1: Add the code below to a CMS Page or a Static Block') ?></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <ul>
+        <li>
+            <code>{{block type="bd_product_slider/featured" name="featured.products.slider"}}</code>
+        </li>
+    </ul>
+    <br/>
+    <div class="div-implementation-help">
+        <ul class="messages">
+            <li class="notice-msg">
+                <ul>
+                    <li><?php /* @noEscape */ echo $this->__('Option 2: Add the code below to a template file') ?></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <ul>
+        <li>
+            <code>$this->getLayout()->createBlock('bd_product_slider/featured')->toHtml()</code>
+        </li>
+    </ul>
+    <br/>
+    <div class="div-implementation-help">
+        <ul class="messages">
+            <li class="notice-msg">
+                <ul>
+                    <li><?php /* @noEscape */ echo $this->__('Option 3: Add the code below to a layout file') ?></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <ul>
+        <li>
+            <code>&lt;block type="bd_product_slider/featured" name="featured.products.slider"/&gt</code>
+        </li>
+    </ul>
+</fieldset>

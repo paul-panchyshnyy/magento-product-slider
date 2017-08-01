@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Custom Product Sliders
+ *
+ * @category Bigdrop
+ * @package  Bigdrop_ProductSlider
+ * @author   Pavel Panchyshnyy <pavel.p@bigdropinc.com>
+ */
+-->
+<config>
+    <modules>
+        <Bigdrop_ProductSlider>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Catalog/>
+            </depends>
+        </Bigdrop_ProductSlider>
+    </modules>
+</config>
