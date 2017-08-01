@@ -37,6 +37,7 @@ They automatically appear on the reserved pages like wishlist, product view and 
 Extension's functionality was successfuly tested with enabled flat catalog option.
 
 # Support
+**Compatible with Magento Community edition (1.9.\*)**
 
 If you have some problems with the module you can contact pavel.p@bigdropinc.com as well.
 
